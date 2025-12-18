@@ -50,3 +50,20 @@ similar to how an operating system presents login options.
 This forms the foundation for adding authentication logic
 in the upcoming stages.
 
+---
+
+## Day 3 – User Registration Module
+
+On Day 3, the user registration functionality was implemented.
+This allows new users to create an account by providing a
+username and password.
+
+### Features Added
+- User registration module
+- In-memory storage of user credentials
+- Duplicate username detection
+
+### OS Concept Used
+- User account creation
+- Access control preparation
+
