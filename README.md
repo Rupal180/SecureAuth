@@ -67,3 +67,22 @@ username and password.
 - User account creation
 - Access control preparation
 
+---
+
+## Day 4 – Login Authentication with OTP (Multi-Factor Authentication)
+
+On Day 4, user login authentication was enhanced by integrating
+OTP-based verification. This introduces multi-factor authentication,
+which is commonly used in operating systems for improved security.
+
+### Features Added
+- User login using username and password
+- OTP (One-Time Password) generation
+- OTP verification before granting access
+- Prevention of unauthorized access
+
+### OS Concepts Used
+- Authentication and authorization
+- Multi-factor authentication (MFA)
+- Secure access control
+

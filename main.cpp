@@ -1,13 +1,21 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
 // User database (username -> password)
 unordered_map<string, string> userDatabase;
 
-// Function to register a new user
+// Generate OTP
+int generateOTP() {
+    srand(time(0));
+    return 100000 + rand() % 900000; // 6-digit OTP
+}
+
+// Register new user
 void registerUser() {
     string username, password;
 
@@ -15,7 +23,6 @@ void registerUser() {
     cout << "Enter Username: ";
     cin >> username;
 
-    // Check if user already exists
     if (userDatabase.find(username) != userDatabase.end()) {
         cout << "User already exists!\n";
         return;
@@ -28,6 +35,38 @@ void registerUser() {
     cout << "Registration successful.\n";
 }
 
+// Login with OTP verification
+void loginUser() {
+    string username, password;
+
+    cout << "\n--- User Login ---\n";
+    cout << "Enter Username: ";
+    cin >> username;
+
+    cout << "Enter Password: ";
+    cin >> password;
+
+    if (userDatabase.find(username) != userDatabase.end() &&
+        userDatabase[username] == password) {
+
+        int otp = generateOTP();
+        int enteredOTP;
+
+        cout << "OTP Generated: " << otp << endl;
+        cout << "Enter OTP: ";
+        cin >> enteredOTP;
+
+        if (enteredOTP == otp) {
+            cout << "Login successful. Access granted.\n";
+        } else {
+            cout << "Invalid OTP. Access denied.\n";
+        }
+
+    } else {
+        cout << "Invalid username or password.\n";
+    }
+}
+
 int main() {
     int choice;
 
@@ -35,7 +74,8 @@ int main() {
     cout << " Secure Authentication System (OS)\n";
     cout << "========================================\n";
     cout << "1. Register User\n";
-    cout << "2. Exit\n";
+    cout << "2. Login User\n";
+    cout << "3. Exit\n";
     cout << "Enter choice: ";
     cin >> choice;
 
@@ -44,10 +84,13 @@ int main() {
             registerUser();
             break;
         case 2:
-            cout << "Exiting system.\n";
+            loginUser();
+            break;
+        case 3:
+            cout << "System exiting.\n";
             break;
         default:
-            cout << "Invalid option.\n";
+            cout << "Invalid selection.\n";
     }
 
     return 0;
