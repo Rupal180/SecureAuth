@@ -86,3 +86,26 @@ which is commonly used in operating systems for improved security.
 - Multi-factor authentication (MFA)
 - Secure access control
 
+---
+
+## Final Day – Session Management, Audit Logging and Final Integration
+
+On the final day, all remaining OS-level security features were
+integrated into the authentication module. The system now maintains
+user sessions, supports secure logout, and records all security events
+using audit logs.
+
+### Features Added
+- User session management
+- Secure logout mechanism
+- Security audit logging
+- Account lockout after failed attempts
+- Full system integration
+
+### OS Concepts Used
+- Session management
+- Access control
+- Security auditing
+- Account locking
+- System-level authentication workflow
+
